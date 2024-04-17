@@ -1,0 +1,132 @@
+{
+    "data": {
+        "country": {
+            "name": "United States of America",
+            "populatedPlaces": {
+                "totalCount": 2601,
+                "edges": [
+                    {
+                        "node": {
+                            "name": "Abilene",
+                            "elevationMeters": 524,
+                            "latitude": 32.446388888,
+                            "longitude": -99.745555555,
+                            "population": 125182,
+                            "region": {
+                                "name": "Texas"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Abington",
+                            "elevationMeters": 104,
+                            "latitude": 40.1206656,
+                            "longitude": -75.1179512,
+                            "population": 55310,
+                            "region": {
+                                "name": "Pennsylvania"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Acadia Parish",
+                            "elevationMeters": 7,
+                            "latitude": 30.266666666,
+                            "longitude": -92.4,
+                            "population": 57576,
+                            "region": {
+                                "name": "Louisiana"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Ada County",
+                            "elevationMeters": 905,
+                            "latitude": 43.45,
+                            "longitude": -116.24,
+                            "population": 494967,
+                            "region": {
+                                "name": "Idaho"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Adams County",
+                            "elevationMeters": 1575,
+                            "latitude": 39.87,
+                            "longitude": -104.35,
+                            "population": 519572,
+                            "region": {
+                                "name": "Colorado"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Adams County",
+                            "elevationMeters": 226,
+                            "latitude": 39.99,
+                            "longitude": -91.19,
+                            "population": 65737,
+                            "region": {
+                                "name": "Illinois"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Adams County",
+                            "elevationMeters": 154,
+                            "latitude": 39.87,
+                            "longitude": -77.22,
+                            "population": 103852,
+                            "region": {
+                                "name": "Pennsylvania"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Aguadilla",
+                            "elevationMeters": 67,
+                            "latitude": 18.480277777,
+                            "longitude": -67.144444444,
+                            "population": 55101,
+                            "region": {
+                                "name": "Puerto Rico"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Aiken County",
+                            "elevationMeters": 141,
+                            "latitude": 33.55,
+                            "longitude": -81.64,
+                            "population": 168808,
+                            "region": {
+                                "name": "South Carolina"
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "Akron",
+                            "elevationMeters": 306,
+                            "latitude": 41.073055555,
+                            "longitude": -81.517777777,
+                            "population": 190469,
+                            "region": {
+                                "name": "Ohio"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
