@@ -15,20 +15,75 @@ state = "latest.school.state"
 lat = "location.lat"
 lon = "location.lon"
 
+list = []
 
-params = {
-    "api_key": api_key,
-    "fields": f"id,{name},{sat_avg},{grad_rate},{ar},{size},{zip},{city},{state},{lat},{lon}",
-    "per_page": 1,
-}
+us_state_abbreviations = [
+    "AL",
+    "AK",
+    "AZ",
+    "AR",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "ID",
+    "IL",
+    "IN",
+    "IA",
+    "KS",
+    "KY",
+    "LA",
+    "ME",
+    "MD",
+    "MA",
+    "MI",
+    "MN",
+    "MS",
+    "MO",
+    "MT",
+    "NE",
+    "NV",
+    "NH",
+    "NJ",
+    "NM",
+    "NY",
+    "NC",
+    "ND",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VT",
+    "VA",
+    "WA",
+    "WV",
+    "WI",
+    "WY",
+]
 
-# Make a GET request
-response = requests.get(base_url, params=params)
 
-# Check if the request was successful
-if response.status_code == 200:
-    data = response.json()
-    # Print or process your data here
-    print(data)
-else:
-    print("Failed to retrieve data:", response.status_code)
+for state in us_state_abbreviations:
+    base_url = f"http://api.data.gov/ed/collegescorecard/v1/schools?school.state={state}"
+    params = {
+        "api_key": api_key,
+        "fields": f"id,{name},{sat_avg},{grad_rate},{ar},{size},{zip},{city},{state},{lat},{lon}",
+        "per_page": 5,
+    }
+    response = requests.get(base_url, params=params)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        data = response.json()
+        # Print or process your data here
+        print(data["results"])
+    else:
+        print("Failed to retrieve data:", response.status_code)
