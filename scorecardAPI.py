@@ -1,4 +1,5 @@
 import requests
+import sqlite3
 
 api_key = "YOn4vJlPGcmk32VfxDWB0VvaMDiVNKZ5c1w95CoV"
 
@@ -14,9 +15,7 @@ city = "latest.school.city"
 state = "latest.school.state"
 lat = "location.lat"
 lon = "location.lon"
-
 list = []
-
 us_state_abbreviations = [
     "AL",
     "AK",
@@ -76,7 +75,7 @@ for state in us_state_abbreviations:
     params = {
         "api_key": api_key,
         "fields": f"id,{name},{sat_avg},{grad_rate},{ar},{size},{zip},{city},{state},{lat},{lon}",
-        "per_page": 5,
+        "per_page": 50,
     }
     response = requests.get(base_url, params=params)
 
@@ -84,6 +83,15 @@ for state in us_state_abbreviations:
     if response.status_code == 200:
         data = response.json()
         # Print or process your data here
-        print(data["results"])
+        print(data["results"][0])
     else:
         print("Failed to retrieve data:", response.status_code)
+        
+
+
+def main():
+    print("main")
+    
+
+if __name__ == '__main__':
+    main()
