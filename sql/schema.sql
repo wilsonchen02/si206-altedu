@@ -9,6 +9,7 @@ CREATE TABLE schools(
     size INTEGER NOT NULL,
     zip INTEGER NOT NULL,
     city_id VARCHAR(100) NOT NULL,
+    UNIQUE(id),
     FOREIGN KEY(city_id) REFERENCES cities(city_id),
     PRIMARY KEY(id)
 );

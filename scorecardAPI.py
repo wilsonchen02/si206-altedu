@@ -1,5 +1,6 @@
 import requests
 import sqlite3
+import os
 
 api_key = "YOn4vJlPGcmk32VfxDWB0VvaMDiVNKZ5c1w95CoV"
 
@@ -69,7 +70,6 @@ def api_call():
         "WY",
     ]
 
-
     for state in us_state_abbreviations:
         base_url = f"http://api.data.gov/ed/collegescorecard/v1/schools?school.state={state}"
         params = {
@@ -86,15 +86,25 @@ def api_call():
             print(data["results"][0])
         else:
             print("Failed to retrieve data:", response.status_code)
-            
-def insert_data():
-    pass
+
+
+def db_setup():
+    path = os.path.dirname(os.path.abspath(__file__))
+    conn = sqlite3.connect(f"{path}/var/database.sqlite")
+    cur = conn.cursor()
+    return cur, conn
+
+
+def insert_data(cur, conn):
+    cur.execute('''
+                INSERT INTO schools (id, name, sat_avg, grad_rate, admissions_rate, size, zip, city_id) VALUES(?,?,?,?,?,?,?,?)
+                ''')
 
 
 def main():
-    api_call()
-    insert_data()
-    
+    # api_call()
+    cur, conn = db_setup()
+
 
 if __name__ == '__main__':
     main()
