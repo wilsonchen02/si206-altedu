@@ -1,6 +1,5 @@
 import requests
 import json
-import os
 import sqlite3
 
 # Fetch data from GeoDB Cities API
@@ -57,7 +56,7 @@ query = """
     """
 
 # From hw7
-def set_up_database(db_name):
+def set_up_database():
     """
     Sets up a SQLite database connection and cursor.
 
@@ -71,8 +70,7 @@ def set_up_database(db_name):
     Tuple (Cursor, Connection):
         A tuple containing the database cursor and connection objects.
     """
-    path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path + "/" + db_name)
+    conn = sqlite3.connect("var/database.sqlite")
     cur = conn.cursor()
     return cur, conn
 
@@ -118,7 +116,22 @@ def geodb_get_states():
             
             # Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
             # TODO: have this fill up the DB instead of local json (no caching allowed)
+            cur, conn = set_up_database()
             
+            # Populate states table
+            for state in data["data"]["country"]["regions"]["edges"]:
+                cur.execute("""
+                    INSERT OR IGNORE INTO states (name, iso_initials)
+                    VALUES (?, ?)
+                    """,
+                    (
+                        state["node"]["name"],
+                        state["node"]["isoCode"]
+                    )
+                )
+                conn.commit()
+            
+            conn.close()
         else:
             # Response is bad
             print("Failed to retrieve data:", response.status_code)
