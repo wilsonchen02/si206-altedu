@@ -4,8 +4,7 @@ import os
 import sqlite3
 
 # Fetch data from GeoDB Cities API
-# Particularly [name, lat, long, elevation, population, region]
-# of cities in the US
+# Gets all the states/regions in the US
 # NOTE: the free API limits to 10 results per request
 # NOTE: trying to fetch an amount N > max results will return max results
 
@@ -20,24 +19,16 @@ header = {
 first_query = """
     query {
         country(id: "US") {
-            name
-            populatedPlaces(types: ["CITY"], first: 10) {
+            regions(first: 10) {
                 totalCount
                 pageInfo {
                     endCursor
                     hasNextPage
                 }
                 edges {
-                    cursor
                     node {
+                        isoCode
                         name
-                        latitude
-                        longitude
-                        elevationMeters
-                        population
-                        region {
-                            name
-                        }
                     }
                 }
             }
@@ -48,24 +39,16 @@ first_query = """
 query = """
     query($prev_cursor: String) {
         country(id: "US") {
-            name
-            populatedPlaces(types: ["CITY"], first: 10, after: $prev_cursor) {
+            regions(first: 10, after: $prev_cursor) {
                 totalCount
                 pageInfo {
                     endCursor
                     hasNextPage
                 }
                 edges {
-                    cursor
                     node {
+                        isoCode
                         name
-                        latitude
-                        longitude
-                        elevationMeters
-                        population
-                        region {
-                            name
-                        }
                     }
                 }
             }
@@ -96,7 +79,7 @@ def set_up_database(db_name):
 # TODO: first req should not have the "after" parameter for populatedPlaces
 # Use GraphQL pagination to get the next 10 cities
 # Running this function will place 20 entries at a time into the db
-def geodb_update_data():
+def geodb_get_states():
     data = {}
     prev_cursor = ""
     hasNextPage = True
@@ -125,17 +108,16 @@ def geodb_update_data():
                 return
             
             # TODO: remove this when db is set up
-            with open("test_geodb_data.json", "w", encoding="utf-8") as f:
+            with open("test_geodb_get_states.json", "w", encoding="utf-8") as f:
                 json.dump(data, f)
             
             # Check if there's another page available. If so, prepare to get the next one
-            hasNextPage = data["data"]["country"]["populatedPlaces"]["pageInfo"]["hasNextPage"]        
+            hasNextPage = data["data"]["country"]["regions"]["pageInfo"]["hasNextPage"]        
             # Grab value of last city's cursor in the previous batch
-            prev_cursor = data["data"]["country"]["populatedPlaces"]["pageInfo"]["endCursor"]
+            prev_cursor = data["data"]["country"]["regions"]["pageInfo"]["endCursor"]
             
             # Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
             # TODO: have this fill up the DB instead of local json (no caching allowed)
-            
             
         else:
             # Response is bad
@@ -145,7 +127,7 @@ def geodb_update_data():
 
 # TODO: use this to test funcs
 def main():
-    geodb_update_data()
+    geodb_get_states()
 
 if __name__ == "__main__":
     main()
