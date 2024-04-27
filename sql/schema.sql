@@ -34,5 +34,6 @@ CREATE TABLE cities(
     longitude FLOAT NOT NULL,
     elevation INTEGER NOT NULL,
     population INTEGER NOT NULL,
+    UNIQUE(name, state_id),
     PRIMARY KEY(id)
 );
