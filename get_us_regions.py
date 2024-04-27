@@ -39,7 +39,7 @@ first_query = """
 query = """
     query($prev_cursor: String) {
         country(id: "US") {
-            regions(first: 10 ,after: $prev_cursor) {
+            regions(first: 10, after: $prev_cursor) {
                 totalCount
                 pageInfo {
                     endCursor
@@ -85,7 +85,6 @@ def geodb_get_states():
     # Otherwise, start at the beginning
     prev_cursor = check_cursor()
     hasNextPage = True
-    
 
     # On each result page, check if the data is already in the db
     # If it is, grab the next page if possible and try again
@@ -100,6 +99,7 @@ def geodb_get_states():
             }
             response = requests.post(url=graphql_url, json={"query": query, "variables": variables}, headers=header)
         else:
+            # Perform first query (try first 10 or less)
             response = requests.post(url=graphql_url, json={"query": first_query}, headers=header)
             
         # Check if response is ok
@@ -122,11 +122,12 @@ def geodb_get_states():
             prev_cursor = data["data"]["country"]["regions"]["pageInfo"]["endCursor"]
             
             # Check if this page of data exists in the db
-            if check_in_db(data) == False:
+            in_db = check_in_db(data)
+            if in_db == False:
                 # Update the db
                 update_db(data)
                 return
-            elif check_in_db(data) == None:
+            elif in_db == None:
                 # No more data left to obtain
                 print("No more data left to read")
                 return
@@ -186,7 +187,6 @@ def check_in_db(data):
 
 
 # Fill up the DB instead with the new page of results
-# TODO: Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
 def update_db(data):
     cur, conn = connect_to_db()
     

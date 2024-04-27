@@ -1,24 +1,21 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE schools(
-    id INTEGER,
-    name VARCHAR(128), 
+    id INTEGER NOT NULL,
+    name VARCHAR(128) NOT NULL,
     sat_avg INTEGER,
     grad_rate FLOAT,
     admissions_rate FLOAT,
-    size INTEGER,
+    size INTEGER NOT NULL,
     zip INTEGER,
-    city_id VARCHAR(100),
+    city_id INTEGER NOT NULL,
+    state_id INTEGER NOT NULL,
     UNIQUE(id),
-    FOREIGN KEY(city_id) REFERENCES cities(city_id),
     PRIMARY KEY(id)
 );
 
-CREATE TABLE cities(
-    city_id VARCHAR(100) NOT NULL,
-    state VARCHAR(50) NOT NULL
-);
-
+-- Includes both states and territories
+-- We just won't use the territories
 CREATE TABLE states(
     id INTEGER NOT NULL,
     graphql_cursor VARCHAR(5) NOT NULL,
@@ -27,13 +24,14 @@ CREATE TABLE states(
     PRIMARY KEY(id)
 );
 
-CREATE TABLE geodb(
+-- This includes city data
+CREATE TABLE cities(
     id INTEGER NOT NULL,
     graphql_cursor VARCHAR(5) NOT NULL,
-    city VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     state_id INTEGER NOT NULL,
-    lat FLOAT NOT NULL,
-    lon FLOAT NOT NULL,
+    latitude FLOAT NOT NULL,
+    longitude FLOAT NOT NULL,
     elevation INTEGER NOT NULL,
     population INTEGER NOT NULL,
     PRIMARY KEY(id)

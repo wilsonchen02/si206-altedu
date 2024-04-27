@@ -95,36 +95,33 @@ def connect_to_db():
 # TODO: first req should not have the "after" parameter for populatedPlaces
 # Use GraphQL pagination to get the next 10 cities
 # Running this function will place 20 entries at a time into the db
-def geodb_update_data():
+def geodb_get_cities():
     data = {}
-    prev_cursor = ""
+    prev_cursor = check_cursor()
     hasNextPage = True
-    is_first_query = True
 
     while hasNextPage:
-        if is_first_query:
-            # Perform first query (try first 10 or less)
-            response = requests.post(url=graphql_url, json={"query": first_query}, headers=header)
-            is_first_query = False
-        else:
-            # Not the first query (use prev_cursor as offset for next page)
+        if prev_cursor != None:
             variables = {
                 "prev_cursor": prev_cursor
             }
             response = requests.post(url=graphql_url, json={"query": query, "variables": variables}, headers=header)
+        else:
+            # Perform first query (try first 10 or less)
+            response = requests.post(url=graphql_url, json={"query": first_query}, headers=header)
             
         # Check if response is ok
         # If response is ok but GraphQL response isn't, catch it
         if response.status_code == 200:
             data = response.json()
-            print("response:", response.content)    # TODO: remove this after done debugging
+            # print("response:", response.content)    # TODO: remove this after done debugging
             
             if data.get("errors") != None:
                 print("GraphQL query error")
                 return
             
             # TODO: remove this when db is set up
-            with open("test_geodb_data.json", "w", encoding="utf-8") as f:
+            with open("test_geodb_get_cities.json", "w", encoding="utf-8") as f:
                 json.dump(data, f)
             
             # Check if there's another page available. If so, prepare to get the next one
@@ -132,44 +129,103 @@ def geodb_update_data():
             # Grab value of last city's cursor in the previous batch
             prev_cursor = data["data"]["country"]["populatedPlaces"]["pageInfo"]["endCursor"]
             
-            # Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
-            # TODO: have this fill up the DB instead of local json (no caching allowed)
-            cur, conn = connect_to_db()
-            
-            # Populate states table
-            for city in data["data"]["country"]["populatedPlaces"]["edges"]:
-                # Use nested subquery to obtain state_id
-                cur.execute("""
-                    INSERT OR IGNORE INTO geodb (city, state_id, lat, lon, elevation, population)
-                    VALUES (?,
-                    (
-                        SELECT id FROM states
-                        WHERE name = ?
-                    ),
-                    ?, ?, ?, ?)
-                    """,
-                    (
-                        city["node"]["name"],
-                        city["node"]["region"]["name"],
-                        city["node"]["latitude"],
-                        city["node"]["longitude"],
-                        city["node"]["elevationMeters"],
-                        city["node"]["population"]
-                    )
-                )
-                conn.commit()
-            
-            conn.close()
+            # Check if this page of data exists in the db
+            in_db = check_in_db(data)
+            if in_db == False:
+                # Update the db
+                update_db(data)
+                return
+            elif in_db == None:
+                # No more data left to obtain
+                print("No more data left to read")
+                return
             
         else:
             # Response is bad
             print("Failed to retrieve data:", response.status_code)
             return
 
+# Check for last used cursor
+def check_cursor():
+    cur, conn = connect_to_db()
+    # Get the cursor of the last record
+    cur.execute("""
+        SELECT graphql_cursor FROM cities
+        ORDER BY id DESC LIMIT 1
+        """
+    )
+    
+    # Should return a cursor (or None if table is empty)
+    prev_cursor = cur.fetchone()
+    conn.close()
+    
+    # print(f"previous cursor: {prev_cursor}")
+    
+    if prev_cursor != None:
+        return prev_cursor[0]
+    else:
+        return None
+
+# Check if data from this page already exists in db
+def check_in_db(data):
+    cur, conn = connect_to_db()
+    
+    # No more after this node, return
+    if len(data["data"]["country"]["populatedPlaces"]["edges"]) == 0:
+        return None
+    
+    first_city_cursor = data["data"]["country"]["populatedPlaces"]["edges"][0]["cursor"]
+    print(first_city_cursor)
+    cur.execute("""
+        SELECT COUNT(*) FROM cities
+        WHERE graphql_cursor = ?
+        """,
+        (first_city_cursor,)
+    )
+    
+    # Should return count (0 or nonzero)
+    in_db = cur.fetchone()[0]
+    conn.close()
+    
+    # If exists, return true. Else, return false
+    if in_db == 0:
+        return False
+    else:
+        return True
+
+# Fill up the DB instead with the new page of results
+# TODO: Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
+def update_db(data):
+    cur, conn = connect_to_db()
+    
+    # Populate states table
+    for city in data["data"]["country"]["populatedPlaces"]["edges"]:
+        cur.execute("""
+            INSERT OR IGNORE INTO cities (graphql_cursor, name, state_id, latitude, longitude, elevation, population)
+            VALUES (?, ?,
+            (
+                SELECT id FROM states
+                WHERE name = ?
+            ),
+            ?, ?, ?, ?)
+            """,
+            (
+                city["cursor"],
+                city["node"]["name"],
+                city["node"]["region"]["name"],
+                city["node"]["latitude"],
+                city["node"]["longitude"],
+                city["node"]["elevationMeters"],
+                city["node"]["population"]
+            )
+        )
+        conn.commit()
+    
+    conn.close()
 
 # TODO: use this to test funcs
 def main():
-    geodb_update_data()
+    geodb_get_cities()
 
 if __name__ == "__main__":
     main()
