@@ -21,6 +21,7 @@ CREATE TABLE cities(
 
 CREATE TABLE states(
     id INTEGER NOT NULL,
+    graphql_cursor VARCHAR(5) NOT NULL,
     name VARCHAR(100) NOT NULL,
     iso_initials VARCHAR(2) NOT NULL,
     PRIMARY KEY(id)
@@ -28,6 +29,7 @@ CREATE TABLE states(
 
 CREATE TABLE geodb(
     id INTEGER NOT NULL,
+    graphql_cursor VARCHAR(5) NOT NULL,
     city VARCHAR(100) NOT NULL,
     state_id INTEGER NOT NULL,
     lat FLOAT NOT NULL,

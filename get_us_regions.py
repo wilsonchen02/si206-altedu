@@ -25,6 +25,7 @@ first_query = """
                     hasNextPage
                 }
                 edges {
+                    cursor
                     node {
                         isoCode
                         name
@@ -38,13 +39,14 @@ first_query = """
 query = """
     query($prev_cursor: String) {
         country(id: "US") {
-            regions(first: 10, after: $prev_cursor) {
+            regions(first: 10 ,after: $prev_cursor) {
                 totalCount
                 pageInfo {
                     endCursor
                     hasNextPage
                 }
                 edges {
+                    cursor
                     node {
                         isoCode
                         name
@@ -79,37 +81,32 @@ def connect_to_db():
 # Running this function will place 20 entries at a time into the db
 def geodb_get_states():
     data = {}
-    prev_cursor = ""
+    # Check db to see if there's anything to start with
+    # Otherwise, start at the beginning
+    prev_cursor = check_cursor()
     hasNextPage = True
-    is_first_query = True
     
-    # Try to get 2 pages (20 entries) at a time
-    page_count = 0
 
     # On each result page, check if the data is already in the db
     # If it is, grab the next page if possible and try again
     # Otherwise, add new data from page into db
     while hasNextPage:
-        if page_count == 2:
-            page_count = 0
-            return
-        
-        if is_first_query:
-            # Perform first query (try first 10 or less)
-            response = requests.post(url=graphql_url, json={"query": first_query}, headers=header)
-            is_first_query = False
-        else:
-            # Not the first query (use prev_cursor as offset for next page)
+        # If there's nothing in the table, start at the beginning
+        # Else, start from the last one in the table
+        # print(f"start of while loop, prev_cursor: {prev_cursor}")
+        if prev_cursor != None:
             variables = {
                 "prev_cursor": prev_cursor
             }
             response = requests.post(url=graphql_url, json={"query": query, "variables": variables}, headers=header)
+        else:
+            response = requests.post(url=graphql_url, json={"query": first_query}, headers=header)
             
         # Check if response is ok
         # If response is ok but GraphQL response isn't, catch it
         if response.status_code == 200:
             data = response.json()
-            print("response:", response.content)    # TODO: remove this after done debugging
+            # print("response:", response.content)    # TODO: remove this after done debugging
             
             if data.get("errors") != None:
                 print("GraphQL query error")
@@ -128,17 +125,46 @@ def geodb_get_states():
             if check_in_db(data) == False:
                 # Update the db
                 update_db(data)
-                page_count += 1        
+                return
+            elif check_in_db(data) == None:
+                # No more data left to obtain
+                print("No more data left to read")
+                return
             
         else:
             # Response is bad
             print("Failed to retrieve data:", response.status_code)
             return
 
+# Check for last used cursor
+def check_cursor():
+    cur, conn = connect_to_db()
+    # Get the cursor of the last record
+    cur.execute("""
+        SELECT graphql_cursor FROM states
+        ORDER BY id DESC LIMIT 1
+        """
+    )
+    
+    # Should return a cursor (or None if table is empty)
+    prev_cursor = cur.fetchone()
+    conn.close()
+    
+    # print(f"previous cursor: {prev_cursor}")
+    
+    if prev_cursor != None:
+        return prev_cursor[0]
+    else:
+        return None
+
 # Check if data from this page already exists in db
-# If exists, return true. Else, return false
 def check_in_db(data):
     cur, conn = connect_to_db()
+    
+    # No more after this node, return
+    if len(data["data"]["country"]["regions"]["edges"]) == 0:
+        return None
+    
     first_state_name = data["data"]["country"]["regions"]["edges"][0]["node"]["name"]
     print(first_state_name)
     cur.execute("""
@@ -150,12 +176,14 @@ def check_in_db(data):
     
     # Should return count (0 or nonzero)
     in_db = cur.fetchone()[0]
+    conn.close()
+    
+    # If exists, return true. Else, return false
     if in_db == 0:
         return False
     else:
         return True
 
-    conn.close()
 
 # Fill up the DB instead with the new page of results
 # TODO: Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
@@ -165,10 +193,11 @@ def update_db(data):
     # Populate states table
     for state in data["data"]["country"]["regions"]["edges"]:
         cur.execute("""
-            INSERT OR IGNORE INTO states (name, iso_initials)
-            VALUES (?, ?)
+            INSERT OR IGNORE INTO states (graphql_cursor, name, iso_initials)
+            VALUES (?, ?, ?)
             """,
             (
+                state["cursor"],
                 state["node"]["name"],
                 state["node"]["isoCode"]
             )
