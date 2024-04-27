@@ -56,7 +56,7 @@ query = """
     """
 
 # From hw7
-def set_up_database():
+def connect_to_db():
     """
     Sets up a SQLite database connection and cursor.
 
@@ -82,8 +82,18 @@ def geodb_get_states():
     prev_cursor = ""
     hasNextPage = True
     is_first_query = True
+    
+    # Try to get 2 pages (20 entries) at a time
+    page_count = 0
 
+    # On each result page, check if the data is already in the db
+    # If it is, grab the next page if possible and try again
+    # Otherwise, add new data from page into db
     while hasNextPage:
+        if page_count == 2:
+            page_count = 0
+            return
+        
         if is_first_query:
             # Perform first query (try first 10 or less)
             response = requests.post(url=graphql_url, json={"query": first_query}, headers=header)
@@ -114,28 +124,58 @@ def geodb_get_states():
             # Grab value of last city's cursor in the previous batch
             prev_cursor = data["data"]["country"]["regions"]["pageInfo"]["endCursor"]
             
-            # Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
-            # TODO: have this fill up the DB instead of local json (no caching allowed)
-            cur, conn = set_up_database()
+            # Check if this page of data exists in the db
+            if check_in_db(data) == False:
+                # Update the db
+                update_db(data)
+                page_count += 1        
             
-            # Populate states table
-            for state in data["data"]["country"]["regions"]["edges"]:
-                cur.execute("""
-                    INSERT OR IGNORE INTO states (name, iso_initials)
-                    VALUES (?, ?)
-                    """,
-                    (
-                        state["node"]["name"],
-                        state["node"]["isoCode"]
-                    )
-                )
-                conn.commit()
-            
-            conn.close()
         else:
             # Response is bad
             print("Failed to retrieve data:", response.status_code)
             return
+
+# Check if data from this page already exists in db
+# If exists, return true. Else, return false
+def check_in_db(data):
+    cur, conn = connect_to_db()
+    first_state_name = data["data"]["country"]["regions"]["edges"][0]["node"]["name"]
+    print(first_state_name)
+    cur.execute("""
+        SELECT COUNT(*) FROM states
+        WHERE name = ?
+        """,
+        (first_state_name,)
+    )
+    
+    # Should return count (0 or nonzero)
+    in_db = cur.fetchone()[0]
+    if in_db == 0:
+        return False
+    else:
+        return True
+
+    conn.close()
+
+# Fill up the DB instead with the new page of results
+# TODO: Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
+def update_db(data):
+    cur, conn = connect_to_db()
+    
+    # Populate states table
+    for state in data["data"]["country"]["regions"]["edges"]:
+        cur.execute("""
+            INSERT OR IGNORE INTO states (name, iso_initials)
+            VALUES (?, ?)
+            """,
+            (
+                state["node"]["name"],
+                state["node"]["isoCode"]
+            )
+        )
+        conn.commit()
+    
+    conn.close()
 
 
 # TODO: use this to test funcs

@@ -74,7 +74,7 @@ query = """
     """
 
 # From hw7
-def set_up_database():
+def connect_to_db():
     """
     Sets up a SQLite database connection and cursor.
 
@@ -134,7 +134,7 @@ def geodb_update_data():
             
             # Remove duplicates (Los Angeles has 2 entries but different ids, use 2 columns to determine uniqueness)
             # TODO: have this fill up the DB instead of local json (no caching allowed)
-            cur, conn = set_up_database()
+            cur, conn = connect_to_db()
             
             # Populate states table
             for city in data["data"]["country"]["populatedPlaces"]["edges"]:
