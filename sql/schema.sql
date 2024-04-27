@@ -20,14 +20,14 @@ CREATE TABLE cities(
 );
 
 CREATE TABLE states(
-    id INTEGER AUTOINCREMENT,
+    id INTEGER NOT NULL,
     name VARCHAR(100) NOT NULL,
     iso_initials VARCHAR(2) NOT NULL,
     PRIMARY KEY(id)
 );
 
 CREATE TABLE geodb(
-    id INT NOT NULL IDENTITY,
+    id INT NOT NULL,
     city VARCHAR(100) NOT NULL,
     state_id INTEGER NOT NULL,
     lat FLOAT NOT NULL,
