@@ -120,10 +120,6 @@ def geodb_get_cities():
                 print("GraphQL query error")
                 return
             
-            # TODO: remove this when db is set up
-            with open("test_geodb_get_cities.json", "w", encoding="utf-8") as f:
-                json.dump(data, f)
-            
             # Check if there's another page available. If so, prepare to get the next one
             hasNextPage = data["data"]["country"]["populatedPlaces"]["pageInfo"]["hasNextPage"]        
             # Grab value of last city's cursor in the previous batch

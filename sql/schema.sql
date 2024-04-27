@@ -18,7 +18,7 @@ CREATE TABLE schools(
 -- We just won't use the territories
 CREATE TABLE states(
     id INTEGER NOT NULL,
-    graphql_cursor VARCHAR(5) NOT NULL,
+    graphql_cursor VARCHAR(10) NOT NULL,
     name VARCHAR(100) NOT NULL,
     iso_initials VARCHAR(2) NOT NULL,
     PRIMARY KEY(id)
@@ -27,7 +27,7 @@ CREATE TABLE states(
 -- This includes city data
 CREATE TABLE cities(
     id INTEGER NOT NULL,
-    graphql_cursor VARCHAR(5) NOT NULL,
+    graphql_cursor VARCHAR(10) NOT NULL,
     name VARCHAR(100) NOT NULL,
     state_id INTEGER NOT NULL,
     latitude FLOAT NOT NULL,
