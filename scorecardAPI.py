@@ -6,7 +6,6 @@ import sys
 api_key = "YOn4vJlPGcmk32VfxDWB0VvaMDiVNKZ5c1w95CoV"
 
 
-
 def check_state(input):
     us_state_abbreviations = [
         "AL",
@@ -60,7 +59,7 @@ def check_state(input):
         "WI",
         "WY",
     ]
-    if input in us_state_abbreviations: 
+    if input in us_state_abbreviations:
         return True
     else:
         return False
@@ -76,23 +75,20 @@ def api_call(state_in):
     state = "latest.school.state"
     lat = "location.lat"
     lon = "location.lon"
-    
-    base_url = f"http://api.data.gov/ed/collegescorecard/v1/schools?school.state={state_in}&latest.student.size__range=10000.."
+
+    base_url = f"http://api.data.gov/ed/collegescorecard/v1/schools?school.state={state_in}&latest.student.size__range=4000.."
     params = {
         "api_key": api_key,
         "fields": f"id,{name},{sat_avg},{grad_rate},{ar},{size},{zip},{city},{state},{lat},{lon}",
-        "per_page": 20,
+        "per_page": 25,
     }
     response = requests.get(base_url, params=params)
 
-    # Check if the request was successful
     if response.status_code == 200:
-        data = response.json()
-        # Print or process your data here
-        print(data['results'])
+        return response.json()
     else:
         print("Failed to retrieve data:", response.status_code)
-
+        exit(1)
 
 def db_setup():
     path = os.path.dirname(os.path.abspath(__file__))
@@ -100,28 +96,44 @@ def db_setup():
     cur = conn.cursor()
     return cur, conn
 
-
-def insert_data(cur, conn):
-    cur.execute('''
-                INSERT INTO schools (id, name, sat_avg, grad_rate, admissions_rate, size, zip, city_id) VALUES(?,?,?,?,?,?,?,?)
-                ''')
+def insert_data(cur, conn, data):
+    for d in data:
+        cur.execute(
+            """
+            INSERT OR IGNORE INTO schools (id, name, sat_avg, grad_rate, admissions_rate, size, zip, city_id) VALUES(?,?,?,?,?,?,?,?)    
+            """,
+            (
+                int(d["id"]),
+                d["school.name"],
+                d["latest.admissions.sat_scores.average.overall"],
+                d["latest.completion.completion_rate_4yr_100nt"],
+                d["latest.admissions.admission_rate.overall"],
+                d["latest.student.size"],
+                d["latest.school.zip"],
+                d["latest.school.city"],
+            ),
+        )
+    conn.commit()
 
 
 def main():
     args = sys.argv[1:]
-    
+
     if len(args) == 0:
         print("Input a state abbreviation as an argument")
         exit(1)
-    
+
     state = args[0]
     if not check_state(state):
         print("Enter a valid state")
         exit(1)
+
+    data = api_call(state)
+    # print(data["results"])
     
-    api_call(state)
-    # cur, conn = db_setup()
+    cur, conn = db_setup()
+    insert_data(cur, conn, data["results"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

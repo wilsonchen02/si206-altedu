@@ -1,14 +1,14 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE schools(
-    id INTEGER NOT NULL,
-    name VARCHAR(128) NOT NULL, 
-    sat_avg INTEGER NOT NULL,
-    grad_rate FLOAT NOT NULL,
-    admissions_rate FLOAT NOT NULL,
-    size INTEGER NOT NULL,
-    zip INTEGER NOT NULL,
-    city_id VARCHAR(100) NOT NULL,
+    id INTEGER,
+    name VARCHAR(128), 
+    sat_avg INTEGER,
+    grad_rate FLOAT,
+    admissions_rate FLOAT,
+    size INTEGER,
+    zip INTEGER,
+    city_id VARCHAR(100),
     UNIQUE(id),
     FOREIGN KEY(city_id) REFERENCES cities(city_id),
     PRIMARY KEY(id)
