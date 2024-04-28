@@ -6,7 +6,6 @@ import sys
 api_key = "YOn4vJlPGcmk32VfxDWB0VvaMDiVNKZ5c1w95CoV"
 
 
-
 def check_state(input):
     us_state_abbreviations = [
         "AL",
@@ -77,7 +76,7 @@ def api_call(state_in):
     lat = "location.lat"
     lon = "location.lon"
 
-    base_url = f"http://api.data.gov/ed/collegescorecard/v1/schools?school.state={state_in}&latest.student.size__range=4000.."
+    base_url = f"http://api.data.gov/ed/collegescorecard/v1/schools?school.state={state_in}&latest.student.size__range=1000.."
     params = {
         "api_key": api_key,
         "fields": f"id,{name},{sat_avg},{grad_rate},{ar},{size},{zip},{city},{state},{lat},{lon}",
@@ -99,21 +98,28 @@ def db_setup():
 
 def insert_data(cur, conn, data):
     for d in data:
-        cur.execute(
-            """
-            INSERT OR IGNORE INTO schools (id, name, sat_avg, grad_rate, admissions_rate, size, zip, city_id) VALUES(?,?,?,?,?,?,?,?)    
-            """,
-            (
-                int(d["id"]),
-                d["school.name"],
-                d["latest.admissions.sat_scores.average.overall"],
-                d["latest.completion.completion_rate_4yr_100nt"],
-                d["latest.admissions.admission_rate.overall"],
-                d["latest.student.size"],
-                d["latest.school.zip"],
-                d["latest.school.city"],
-            ),
-        )
+        cur.execute("SELECT id FROM cities WHERE name = ?", (d["latest.school.city"],))
+        city_id = cur.fetchone()
+        cur.execute("SELECT id FROM states WHERE iso_initials = ?", (d["latest.school.state"],))
+        state_id = cur.fetchone()
+
+        if city_id and state_id:
+            cur.execute(
+                """
+                INSERT OR IGNORE INTO schools (id, name, sat_avg, grad_rate, admissions_rate, size, zip, city_id, state_id) VALUES(?,?,?,?,?,?,?,?,?)    
+                """,
+                (
+                    int(d["id"]),
+                    d["school.name"],
+                    d["latest.admissions.sat_scores.average.overall"],
+                    d["latest.completion.completion_rate_4yr_100nt"],
+                    d["latest.admissions.admission_rate.overall"],
+                    d["latest.student.size"],
+                    d["latest.school.zip"],
+                    city_id[0],
+                    state_id[0]
+                ),
+            )
     conn.commit()
 
 
