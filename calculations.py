@@ -37,6 +37,8 @@ def write_data(db_data):
     csv_input = []
 
     for k, v in data.items():
+        print(k)
+        print(v)
         csv_input.append(
             {
                 "city": k,

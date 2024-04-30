@@ -1,382 +1,382 @@
-city,student_percentage,avg_grad,elevation
-Normal,43%,0.29525,265
-Birmingham,8%,0.5835333333333333,187
-Huntsville,12%,0.32456666666666667,193
-Montgomery,4%,0.1159,73
-Tuscaloosa,30%,0.5264,68
-Auburn,32%,0.552,214
-Jacksonville,2%,0.37242,5
-Fairfield,10%,0.5490333333333334,13
-Mobile,5%,0.31865,3
-Florence,19%,0.23109999999999997,167
-Troy,20%,0.5073333333333333,228
-Anchorage,2%,0.1516,31
-Phoenix,8%,0.1920666666666667,1086
-Tempe,36%,0.39615,456
-Tucson,6%,0.4979,728
-Prescott,6%,0.3979,1638
-Flagstaff,30%,0.4514,2106
-Glendale,0%,0.3,351
-Little Rock,2%,0.2449,102
-Fayetteville,32%,0.3251,427
-Pine Bluff,5%,0.2612,67
-Jonesboro,9%,0.3778,79
-Conway,28%,0.4701666666666667,95
-Fort Smith,4%,0.1655,141
-San Francisco,0%,0.25615,52
-Pasadena,1%,0.3046,263
-Azusa,7%,0.5328,610
-La Mirada,7%,0.5503,59
-Riverside,10%,0.4437,827
-Thousand Oaks,2%,0.6807,886
-San Luis Obispo,44%,0.5704,233
-Bakersfield,2%,0.1741,123
-Turlock,12%,0.1893,102
-San Bernardino,7%,0.1872,321
-Pomona,17%,0.2843,259
-Chico,14%,0.3306,60
-Carson,15%,0.158,12
-Fresno,4%,0.36665,308
-Fullerton,24%,0.2897,50
-Hayward,7%,0.1214,105
-Long Beach,7%,0.3424,30
-Los Angeles,1%,0.5503333333333332,93
-Northridge,48%,0.1655,242
-Sacramento,5%,0.2031,9
-Berkeley,25%,0.7897,52
-Davis,47%,0.6194,52
-Irvine,10%,0.64395,56
-La Jolla,77%,0.7302,32
-Santa Barbara,26%,0.699,49
-Santa Cruz,28%,0.6039,36
-Orange,5%,0.7163,58
-San Rafael,2%,0.6786,13
-Santa Clarita,0%,0.6617,368
-Denver,4%,0.3894,1609
-Colorado Springs,6%,0.40503333333333336,1839
-Boulder,28%,0.5306,1655
-Lakewood,9%,0.4078,14
-Fort Collins,14%,0.4671,1525
-Grand Junction,12%,0.2758,1397
-Greeley,6%,0.3553,1420
-Pueblo,2%,0.2078,1430
-New Haven,10%,0.5346000000000001,18
-Bridgeport,1%,0.3382,1
-New Britain,10%,0.2852,51
-East Hartford,5%,0.1875,12
-West Hartford,6%,0.5276,50
-West Haven,8%,0.5207,10
-Waterbury,11%,0.1466,80
-Hamden,10%,0.7701,56
-Hartford,3%,0.6131,18
-Middletown,9%,0.4626,12
-Danbury,4%,0.3008,121
-Newark,79%,0.374825,20
-Miami,9%,0.31595,2
-Daytona Beach,25%,0.19696666666666665,4
-Boca Raton,29%,0.43870000000000003,4
-Orlando,19%,0.35685,34
-Tallahassee,20%,0.48925,62
-Melbourne,3%,0.5295,4
-Lakeland,8%,0.4576,141
-Gainesville,28%,0.45619999999999994,54
-Fort Lauderdale,13%,0.52495,2
-Coral Gables,24%,0.731,28
-West Palm Beach,1%,0.5046,6
-Sarasota,3%,0.7086,7
-Tampa,12%,0.4183333333333333,15
-Miami Gardens,1%,0.3351,2
-Pensacola,16%,0.3485,31
-Decatur,4%,0.56935,171
-Albany,10%,0.2887,62
-Atlanta,12%,0.4508,225
-Columbus,29%,0.38654,243
-Athens,38%,0.4928666666666666,194
-Macon,7%,0.36775,116
-Savannah,13%,0.2431333333333333,15
-Valdosta,15%,0.208,67
-Carrollton,6%,0.2168,161
-Honolulu,5%,0.3862333333333334,6
-Hilo,5%,0.273,18
-Boise,7%,0.3067,824
-Pocatello,12%,0.1959,1360
-Caldwell,4%,0.49195,724
-Nampa,1%,0.438,767
-Chicago,3%,0.39542142857142865,587
-Aurora,1%,0.456,1648
-Peoria,2%,0.5725,348
-Charleston,14%,0.45830000000000004,6
-Elmhurst,6%,0.5586,210
-University Park,5%,0.0985,1
-Champaign,38%,0.7138,225
-Bloomington,45%,0.7251000000000001,243
-Lake Forest,1%,0.6742,148
-Naperville,14%,0.414,214
-Evanston,11%,0.8628,614
-Joliet,1%,0.3978,165
-Springfield,23%,0.4715375,182
-Wheaton,4%,0.8182,228
-Anderson,7%,0.5272,268
-Muncie,21%,0.5447,284
-Mishawaka,2%,0.5353,219
-Indianapolis,3%,0.5206999999999999,218
-Evansville,6%,0.46094999999999997,118
-Huntington,4%,0.46530000000000005,41
-Fort Wayne,4%,0.254925,247
-Terre Haute,16%,0.5146999999999999,152
-Kokomo,4%,0.2631,247
-South Bend,3%,0.1827,211
-Gary,4%,0.2205,180
-Richmond,30%,0.36287499999999995,14
-Marion,5%,0.6208,260
-Upland,2%,0.7259,1237
-Cedar Rapids,1%,0.563,247
-Mount Vernon,3%,0.54715,33
-Des Moines,2%,0.54605,291
-Dubuque,4%,0.43474999999999997,188
-Ames,38%,0.5085,287
-Iowa City,28%,0.5595,204
-Sioux City,1%,0.4582,366
-Cedar Falls,19%,0.4425,268
-Davenport,2%,0.5459,180
-Lawrence,37%,0.4989,266
-Manhattan,28%,0.4148,311
-Olathe,0%,0.3243,315
-Pittsburg,5%,0.3089,8
-Topeka,3%,0.2725,288
-Wichita,2%,0.247,396
-Louisville,6%,0.49315,142
-Danville,5%,0.6036999999999999,109
-Williamsburg,8%,0.6191,4
-Georgetown,4%,0.6001000000000001,230
-Lexington,7%,0.6859000000000001,298
-Columbia,57%,0.38733333333333336,124
-Murray,13%,0.3735,1311
-Bowling Green,35%,0.4325,1667
-New Orleans,5%,0.3934166666666667,-2
-Alexandria,9%,0.59715,23
-Baton Rouge,13%,0.26355,17
-Shreveport,1%,0.2277,44
-Lake Charles,6%,0.226,3
-Monroe,11%,0.3486,22
-Hammond,21%,0.19945000000000002,183
-Lafayette,17%,0.2295,211
-Augusta,4%,0.1659,45
-Farmington,2%,0.4206,1644
-Portland,40%,0.5010600000000001,19
-Baltimore,5%,0.48211250000000005,10
-Bowie,9%,0.1682,47
-Frederick,1%,0.5625,92
-Towson,29%,0.4996,141
-Annapolis,11%,0.8919,12
-Westminster,1%,0.5618,12
-Amherst,21%,0.6894333333333332,185
-Worcester,8%,0.7226400000000001,146
-Waltham,11%,0.8253999999999999,15
-Boston,8%,0.5651818181818182,43
-Milton,4%,0.48,298
-Franklin,1%,0.397,196
-Beverly,6%,0.7605,11
-Fitchburg,7%,0.37,143
-Framingham,4%,0.3737,50
-Cambridge,12%,0.7446666666666667,12
-Newton,1%,0.6074,30
-Lowell,11%,0.4651,31
-Chicopee,1%,0.6044,61
-Weston,1%,0.5451,3
-Salem,20%,0.47229999999999994,8
-Medford,11%,0.8902,4
-Westfield,8%,0.4617,270
-Grand Rapids,4%,0.4918,195
-Mount Pleasant,25%,0.3443,76
-Detroit,3%,0.4049666666666667,183
-Flint,7%,0.11205000000000001,229
-Kalamazoo,21%,0.4841,239
-Southfield,2%,0.2118,208
-Livonia,2%,0.3886,206
-Ann Arbor,25%,0.8089,256
-East Lansing,80%,0.5948,261
-Dearborn,5%,0.2669,180
-Midland,4%,0.4732,193
-Rochester Hills,17%,0.3087,250
-Minneapolis,10%,0.50075,264
-Saint Paul,8%,0.5526875,214
-Moorhead,12%,0.55225,274
-Mankato,25%,0.2871,238
-Duluth,11%,0.52195,214
-Jackson,6%,0.369625,85
-Cleveland,5%,0.37873999999999997,199
-University,35%,0.5152,25
-Hattiesburg,25%,0.3478,52
-Jefferson City,6%,0.3322,192
-Joplin,6%,0.219,306
-Kansas City,5%,0.4807,265
-Bozeman,26%,0.3105,1461
-Missoula,9%,0.3259,978
-Bellevue,13%,0.1887,315
-Omaha,3%,0.47140000000000004,332
-Fremont,0%,0.4207,17
-Lincoln,42%,0.52225,51
-Wayne,17%,0.32685,53
-Las Vegas,4%,0.18585000000000002,610
-Reno,6%,0.3979,1373
-Manchester,202%,0.52195,83
-Durham,8%,0.6247333333333333,123
-Plymouth,7%,0.40325,57
-Nashua,1%,0.4916,46
-Concord,1%,0.0303,23
-Bloomfield,2%,0.2196,53
-Madison,73%,0.4715666666666667,215
-Teaneck,6%,0.378,39
-Lodi,2%,0.277,49
-Jersey City,2%,0.3216,9
-Union,18%,0.2409,299
-Montclair,39%,0.475,92
-Camden,6%,0.4289,5
-New Brunswick,64%,0.6768,19
-Hoboken,6%,0.6272,8
-Albuquerque,2%,0.3362,1619
-Las Cruces,9%,0.2599,1191
-Flushing,1%,0.2857,26
-Buffalo,1%,0.4443333333333334,183
-Hamilton,8%,0.4721,181
-Brooklyn,1%,0.33936666666666665,15
-Queens,1%,0.39844999999999997,12
-Jamaica,2%,0.0915,13
-Hempstead,10%,0.5998,17
-New Rochelle,3%,0.5149,26
-Syracuse,1%,0.683,116
-Riverdale,6%,0.6422,55
-Poughkeepsie,11%,0.7502,70
-Rochester,20%,0.5643999999999999,1030
-Canton,2%,0.7743,207
-Wilson,2%,0.4358,33
-Greenville,29%,0.605,17
-Greensboro,9%,0.37420000000000003,272
-High Point,4%,0.6543,286
-Charlotte,3%,0.392425,229
-Hickory,3%,0.3879,362
-Raleigh,5%,0.4757,96
-Wilmington,24%,0.4144666666666667,28
-Asheville,3%,0.4782,650
-Chapel Hill,31%,0.8372,148
-Rocky Mount,2%,0.2971,31
-Winston-Salem,4%,0.57255,300
-Bismarck,2%,0.5136,514
-Minot,4%,0.2675,494
-Grand Forks,15%,0.3983,257
-Fargo,7%,0.4122,274
-Akron,5%,0.2163,306
-Cincinnati,10%,0.49393333333333334,147
-Dayton,11%,0.45545,225
-Findlay,5%,0.4723,237
-Warren,1%,0.116,191
-Kent,14%,0.6234,13
-Marietta,1%,0.4311,344
-Toledo,4%,0.17900000000000002,187
-Delaware,3%,0.5851,255
-Portsmouth,2%,0.3579,6
-Youngstown,13%,0.2409,259
-Lawton,3%,0.1778,339
-Edmond,13%,0.27205,367
-Stillwater,40%,0.4459,300
-Shawnee,2%,0.4324,325
-Oklahoma City,0%,0.35255000000000003,366
-Norman,16%,0.5017,357
-Tulsa,1%,0.5355000000000001,220
-Corvallis,45%,0.4059,72
-Eugene,10%,0.6078,131
-Reading,3%,0.40995,93
-Pittsburgh,12%,0.6131666666666666,373
-Allentown,2%,0.64445,103
-Philadelphia,4%,0.6022700000000001,12
-Lancaster,2%,0.62445,2359
-Erie,5%,0.5506,223
-Grove City,5%,0.8679,259
-Wilkes-Barre,3%,0.5938,160
-Bethlehem,9%,0.7165999999999999,109
-Mansfield,3%,0.4071,378
-Scranton,6%,0.65825,227
-Dallas,0%,0.6184,131
-Washington,0%,0.7095,7
-Providence,12%,0.62832,23
-Bristol,8%,0.5345500000000001,93
-Greenwood,5%,0.3649,245
-Rock Hill,5%,0.4572,206
-Sioux Falls,1%,0.51835,448
-Rapid City,2%,0.2404,976
-Clarksville,4%,0.2321,145
-Nashville,3%,0.5343399999999999,182
-Memphis,2%,0.5624,103
-Johnson City,13%,0.3494,498
-Henderson,1%,0.33105,538
-Knoxville,15%,0.43110000000000004,270
-Murfreesboro,11%,0.3484,186
-Chattanooga,5%,0.3504,206
-Abilene,4%,0.35823333333333335,524
-San Angelo,5%,0.3131,562
-Sherman,2%,0.6487,224
-Waco,10%,0.6829,143
-Austin,45%,0.5038999999999999,189
-Corpus Christi,2%,0.1805,8
-Irving,0%,0.6845,147
-Houston,3%,0.34117142857142857,13
-Victoria,4%,0.0807,29
-San Antonio,2%,0.34325,198
-Beaumont,14%,0.1748,796
-Laredo,2%,0.2586,137
-Longview,1%,0.5421,371
-Lubbock,0%,0.3236,992
-Wichita Falls,4%,0.2354,289
-Denton,23%,0.4003,195
-Edinburg,26%,0.2468,29
-Waxahachie,3%,0.404,170
-San Marcos,34%,0.3267,177
-Alpine,2%,0.1597,1364
-College Station,46%,0.5884,103
-Arlington,80%,0.3202333333333333,14
-Richardson,17%,0.5226,192
-El Paso,2%,0.178,1140
-Tyler,6%,0.2676,165
-Fort Worth,1%,0.7059,216
-Odessa,3%,0.2537,884
-Provo,27%,0.2493,1387
-Logan,38%,0.2936,1382
-Orem,28%,0.1479,1455
-Salt Lake City,67%,0.47433333333333333,1288
-Ogden,18%,0.1539,1310
-Burlington,24%,0.6444000000000001,193
-Virginia Beach,3%,0.422,6
-Newport News,2%,0.6599,15
-Hampton,2%,0.3968,3
-Harrisonburg,38%,0.653,404
-Lynchburg,61%,0.5149,192
-Norfolk,9%,0.20315,7
-Blacksburg,66%,0.6764,633
-Charlottesville,36%,0.8861,181
-Olympia,3%,0.3229,29
-Spokane,3%,0.6972,562
-Tacoma,3%,0.5716333333333333,74
-Lacey,2%,0.5084,62
-Seattle,5%,0.6378,20
-Bellingham,15%,0.429,22
-Waukesha,3%,0.5735,271
-Kenosha,5%,0.3928,184
-Appleton,1%,0.6904,241
-Milwaukee,4%,0.43840000000000007,188
-La Crosse,20%,0.47225,204
-Eau Claire,13%,0.4461,240
-Green Bay,6%,0.3776,177
-Oshkosh,12%,0.2711,241
-West Lafayette,156%,0.4345,187
-Fort Myers,17%,0.42865,3
-Bothell,11%,0.4571,23
-Hialeah,1%,0.4766,2
-Stamford,1%,0.3646,7
-Bend,1%,0.5,3623
-Redmond,1%,0.4404,13
-Chandler,4%,0.0801,370
-Draper,3%,1.0,1373
-Sandy Springs,1%,0.4,1093
-Scottsdale,17%,0.1307,380
-North Brunswick,2%,1.0,28
+city,student_percentage,avg_grad,elevation
+Normal,43%,0.29525,265
+Birmingham,8%,0.5835333333333333,187
+Huntsville,12%,0.32456666666666667,193
+Montgomery,4%,0.1159,73
+Tuscaloosa,30%,0.5264,68
+Auburn,32%,0.552,214
+Jacksonville,2%,0.37242,5
+Fairfield,10%,0.5490333333333334,13
+Mobile,5%,0.31865,3
+Florence,19%,0.23109999999999997,167
+Troy,20%,0.5073333333333333,228
+Anchorage,2%,0.1516,31
+Phoenix,8%,0.1920666666666667,1086
+Tempe,36%,0.39615,456
+Tucson,6%,0.4979,728
+Prescott,6%,0.3979,1638
+Flagstaff,30%,0.4514,2106
+Glendale,0%,0.3,351
+Little Rock,2%,0.2449,102
+Fayetteville,32%,0.3251,427
+Pine Bluff,5%,0.2612,67
+Jonesboro,9%,0.3778,79
+Conway,28%,0.4701666666666667,95
+Fort Smith,4%,0.1655,141
+San Francisco,0%,0.25615,52
+Pasadena,1%,0.3046,263
+Azusa,7%,0.5328,610
+La Mirada,7%,0.5503,59
+Riverside,10%,0.4437,827
+Thousand Oaks,2%,0.6807,886
+San Luis Obispo,44%,0.5704,233
+Bakersfield,2%,0.1741,123
+Turlock,12%,0.1893,102
+San Bernardino,7%,0.1872,321
+Pomona,17%,0.2843,259
+Chico,14%,0.3306,60
+Carson,15%,0.158,12
+Fresno,4%,0.36665,308
+Fullerton,24%,0.2897,50
+Hayward,7%,0.1214,105
+Long Beach,7%,0.3424,30
+Los Angeles,1%,0.5503333333333332,93
+Northridge,48%,0.1655,242
+Sacramento,5%,0.2031,9
+Berkeley,25%,0.7897,52
+Davis,47%,0.6194,52
+Irvine,10%,0.64395,56
+La Jolla,77%,0.7302,32
+Santa Barbara,26%,0.699,49
+Santa Cruz,28%,0.6039,36
+Orange,5%,0.7163,58
+San Rafael,2%,0.6786,13
+Santa Clarita,0%,0.6617,368
+Denver,4%,0.3894,1609
+Colorado Springs,6%,0.40503333333333336,1839
+Boulder,28%,0.5306,1655
+Lakewood,9%,0.4078,14
+Fort Collins,14%,0.4671,1525
+Grand Junction,12%,0.2758,1397
+Greeley,6%,0.3553,1420
+Pueblo,2%,0.2078,1430
+New Haven,10%,0.5346000000000001,18
+Bridgeport,1%,0.3382,1
+New Britain,10%,0.2852,51
+East Hartford,5%,0.1875,12
+West Hartford,6%,0.5276,50
+West Haven,8%,0.5207,10
+Waterbury,11%,0.1466,80
+Hamden,10%,0.7701,56
+Hartford,3%,0.6131,18
+Middletown,9%,0.4626,12
+Danbury,4%,0.3008,121
+Newark,79%,0.374825,20
+Miami,9%,0.31595,2
+Daytona Beach,25%,0.19696666666666665,4
+Boca Raton,29%,0.43870000000000003,4
+Orlando,19%,0.35685,34
+Tallahassee,20%,0.48925,62
+Melbourne,3%,0.5295,4
+Lakeland,8%,0.4576,141
+Gainesville,28%,0.45619999999999994,54
+Fort Lauderdale,13%,0.52495,2
+Coral Gables,24%,0.731,28
+West Palm Beach,1%,0.5046,6
+Sarasota,3%,0.7086,7
+Tampa,12%,0.4183333333333333,15
+Miami Gardens,1%,0.3351,2
+Pensacola,16%,0.3485,31
+Decatur,4%,0.56935,171
+Albany,10%,0.2887,62
+Atlanta,12%,0.4508,225
+Columbus,29%,0.38654,243
+Athens,38%,0.4928666666666666,194
+Macon,7%,0.36775,116
+Savannah,13%,0.2431333333333333,15
+Valdosta,15%,0.208,67
+Carrollton,6%,0.2168,161
+Honolulu,5%,0.3862333333333334,6
+Hilo,5%,0.273,18
+Boise,7%,0.3067,824
+Pocatello,12%,0.1959,1360
+Caldwell,4%,0.49195,724
+Nampa,1%,0.438,767
+Chicago,3%,0.39542142857142865,587
+Aurora,1%,0.456,1648
+Peoria,2%,0.5725,348
+Charleston,14%,0.45830000000000004,6
+Elmhurst,6%,0.5586,210
+University Park,5%,0.0985,1
+Champaign,38%,0.7138,225
+Bloomington,45%,0.7251000000000001,243
+Lake Forest,1%,0.6742,148
+Naperville,14%,0.414,214
+Evanston,11%,0.8628,614
+Joliet,1%,0.3978,165
+Springfield,23%,0.4715375,182
+Wheaton,4%,0.8182,228
+Anderson,7%,0.5272,268
+Muncie,21%,0.5447,284
+Mishawaka,2%,0.5353,219
+Indianapolis,3%,0.5206999999999999,218
+Evansville,6%,0.46094999999999997,118
+Huntington,4%,0.46530000000000005,41
+Fort Wayne,4%,0.254925,247
+Terre Haute,16%,0.5146999999999999,152
+Kokomo,4%,0.2631,247
+South Bend,3%,0.1827,211
+Gary,4%,0.2205,180
+Richmond,30%,0.36287499999999995,14
+Marion,5%,0.6208,260
+Upland,2%,0.7259,1237
+Cedar Rapids,1%,0.563,247
+Mount Vernon,3%,0.54715,33
+Des Moines,2%,0.54605,291
+Dubuque,4%,0.43474999999999997,188
+Ames,38%,0.5085,287
+Iowa City,28%,0.5595,204
+Sioux City,1%,0.4582,366
+Cedar Falls,19%,0.4425,268
+Davenport,2%,0.5459,180
+Lawrence,37%,0.4989,266
+Manhattan,28%,0.4148,311
+Olathe,0%,0.3243,315
+Pittsburg,5%,0.3089,8
+Topeka,3%,0.2725,288
+Wichita,2%,0.247,396
+Louisville,6%,0.49315,142
+Danville,5%,0.6036999999999999,109
+Williamsburg,8%,0.6191,4
+Georgetown,4%,0.6001000000000001,230
+Lexington,7%,0.6859000000000001,298
+Columbia,57%,0.38733333333333336,124
+Murray,13%,0.3735,1311
+Bowling Green,35%,0.4325,1667
+New Orleans,5%,0.3934166666666667,-2
+Alexandria,9%,0.59715,23
+Baton Rouge,13%,0.26355,17
+Shreveport,1%,0.2277,44
+Lake Charles,6%,0.226,3
+Monroe,11%,0.3486,22
+Hammond,21%,0.19945000000000002,183
+Lafayette,17%,0.2295,211
+Augusta,4%,0.1659,45
+Farmington,2%,0.4206,1644
+Portland,40%,0.5010600000000001,19
+Baltimore,5%,0.48211250000000005,10
+Bowie,9%,0.1682,47
+Frederick,1%,0.5625,92
+Towson,29%,0.4996,141
+Annapolis,11%,0.8919,12
+Westminster,1%,0.5618,12
+Amherst,21%,0.6894333333333332,185
+Worcester,8%,0.7226400000000001,146
+Waltham,11%,0.8253999999999999,15
+Boston,8%,0.5651818181818182,43
+Milton,4%,0.48,298
+Franklin,1%,0.397,196
+Beverly,6%,0.7605,11
+Fitchburg,7%,0.37,143
+Framingham,4%,0.3737,50
+Cambridge,12%,0.7446666666666667,12
+Newton,1%,0.6074,30
+Lowell,11%,0.4651,31
+Chicopee,1%,0.6044,61
+Weston,1%,0.5451,3
+Salem,20%,0.47229999999999994,8
+Medford,11%,0.8902,4
+Westfield,8%,0.4617,270
+Grand Rapids,4%,0.4918,195
+Mount Pleasant,25%,0.3443,76
+Detroit,3%,0.4049666666666667,183
+Flint,7%,0.11205000000000001,229
+Kalamazoo,21%,0.4841,239
+Southfield,2%,0.2118,208
+Livonia,2%,0.3886,206
+Ann Arbor,25%,0.8089,256
+East Lansing,80%,0.5948,261
+Dearborn,5%,0.2669,180
+Midland,4%,0.4732,193
+Rochester Hills,17%,0.3087,250
+Minneapolis,10%,0.50075,264
+Saint Paul,8%,0.5526875,214
+Moorhead,12%,0.55225,274
+Mankato,25%,0.2871,238
+Duluth,11%,0.52195,214
+Jackson,6%,0.369625,85
+Cleveland,5%,0.37873999999999997,199
+University,35%,0.5152,25
+Hattiesburg,25%,0.3478,52
+Jefferson City,6%,0.3322,192
+Joplin,6%,0.219,306
+Kansas City,5%,0.4807,265
+Bozeman,26%,0.3105,1461
+Missoula,9%,0.3259,978
+Bellevue,13%,0.1887,315
+Omaha,3%,0.47140000000000004,332
+Fremont,0%,0.4207,17
+Lincoln,42%,0.52225,51
+Wayne,17%,0.32685,53
+Las Vegas,4%,0.18585000000000002,610
+Reno,6%,0.3979,1373
+Manchester,202%,0.52195,83
+Durham,8%,0.6247333333333333,123
+Plymouth,7%,0.40325,57
+Nashua,1%,0.4916,46
+Concord,1%,0.0303,23
+Bloomfield,2%,0.2196,53
+Madison,73%,0.4715666666666667,215
+Teaneck,6%,0.378,39
+Lodi,2%,0.277,49
+Jersey City,2%,0.3216,9
+Union,18%,0.2409,299
+Montclair,39%,0.475,92
+Camden,6%,0.4289,5
+New Brunswick,64%,0.6768,19
+Hoboken,6%,0.6272,8
+Albuquerque,2%,0.3362,1619
+Las Cruces,9%,0.2599,1191
+Flushing,1%,0.2857,26
+Buffalo,1%,0.4443333333333334,183
+Hamilton,8%,0.4721,181
+Brooklyn,1%,0.33936666666666665,15
+Queens,1%,0.39844999999999997,12
+Jamaica,2%,0.0915,13
+Hempstead,10%,0.5998,17
+New Rochelle,3%,0.5149,26
+Syracuse,1%,0.683,116
+Riverdale,6%,0.6422,55
+Poughkeepsie,11%,0.7502,70
+Rochester,20%,0.5643999999999999,1030
+Canton,2%,0.7743,207
+Wilson,2%,0.4358,33
+Greenville,29%,0.605,17
+Greensboro,9%,0.37420000000000003,272
+High Point,4%,0.6543,286
+Charlotte,3%,0.392425,229
+Hickory,3%,0.3879,362
+Raleigh,5%,0.4757,96
+Wilmington,24%,0.4144666666666667,28
+Asheville,3%,0.4782,650
+Chapel Hill,31%,0.8372,148
+Rocky Mount,2%,0.2971,31
+Winston-Salem,4%,0.57255,300
+Bismarck,2%,0.5136,514
+Minot,4%,0.2675,494
+Grand Forks,15%,0.3983,257
+Fargo,7%,0.4122,274
+Akron,5%,0.2163,306
+Cincinnati,10%,0.49393333333333334,147
+Dayton,11%,0.45545,225
+Findlay,5%,0.4723,237
+Warren,1%,0.116,191
+Kent,14%,0.6234,13
+Marietta,1%,0.4311,344
+Toledo,4%,0.17900000000000002,187
+Delaware,3%,0.5851,255
+Portsmouth,2%,0.3579,6
+Youngstown,13%,0.2409,259
+Lawton,3%,0.1778,339
+Edmond,13%,0.27205,367
+Stillwater,40%,0.4459,300
+Shawnee,2%,0.4324,325
+Oklahoma City,0%,0.35255000000000003,366
+Norman,16%,0.5017,357
+Tulsa,1%,0.5355000000000001,220
+Corvallis,45%,0.4059,72
+Eugene,10%,0.6078,131
+Reading,3%,0.40995,93
+Pittsburgh,12%,0.6131666666666666,373
+Allentown,2%,0.64445,103
+Philadelphia,4%,0.6022700000000001,12
+Lancaster,2%,0.62445,2359
+Erie,5%,0.5506,223
+Grove City,5%,0.8679,259
+Wilkes-Barre,3%,0.5938,160
+Bethlehem,9%,0.7165999999999999,109
+Mansfield,3%,0.4071,378
+Scranton,6%,0.65825,227
+Dallas,0%,0.6184,131
+Washington,0%,0.7095,7
+Providence,12%,0.62832,23
+Bristol,8%,0.5345500000000001,93
+Greenwood,5%,0.3649,245
+Rock Hill,5%,0.4572,206
+Sioux Falls,1%,0.51835,448
+Rapid City,2%,0.2404,976
+Clarksville,4%,0.2321,145
+Nashville,3%,0.5343399999999999,182
+Memphis,2%,0.5624,103
+Johnson City,13%,0.3494,498
+Henderson,1%,0.33105,538
+Knoxville,15%,0.43110000000000004,270
+Murfreesboro,11%,0.3484,186
+Chattanooga,5%,0.3504,206
+Abilene,4%,0.35823333333333335,524
+San Angelo,5%,0.3131,562
+Sherman,2%,0.6487,224
+Waco,10%,0.6829,143
+Austin,45%,0.5038999999999999,189
+Corpus Christi,2%,0.1805,8
+Irving,0%,0.6845,147
+Houston,3%,0.34117142857142857,13
+Victoria,4%,0.0807,29
+San Antonio,2%,0.34325,198
+Beaumont,14%,0.1748,796
+Laredo,2%,0.2586,137
+Longview,1%,0.5421,371
+Lubbock,0%,0.3236,992
+Wichita Falls,4%,0.2354,289
+Denton,23%,0.4003,195
+Edinburg,26%,0.2468,29
+Waxahachie,3%,0.404,170
+San Marcos,34%,0.3267,177
+Alpine,2%,0.1597,1364
+College Station,46%,0.5884,103
+Arlington,80%,0.3202333333333333,14
+Richardson,17%,0.5226,192
+El Paso,2%,0.178,1140
+Tyler,6%,0.2676,165
+Fort Worth,1%,0.7059,216
+Odessa,3%,0.2537,884
+Provo,27%,0.2493,1387
+Logan,38%,0.2936,1382
+Orem,28%,0.1479,1455
+Salt Lake City,67%,0.47433333333333333,1288
+Ogden,18%,0.1539,1310
+Burlington,24%,0.6444000000000001,193
+Virginia Beach,3%,0.422,6
+Newport News,2%,0.6599,15
+Hampton,2%,0.3968,3
+Harrisonburg,38%,0.653,404
+Lynchburg,61%,0.5149,192
+Norfolk,9%,0.20315,7
+Blacksburg,66%,0.6764,633
+Charlottesville,36%,0.8861,181
+Olympia,3%,0.3229,29
+Spokane,3%,0.6972,562
+Tacoma,3%,0.5716333333333333,74
+Lacey,2%,0.5084,62
+Seattle,5%,0.6378,20
+Bellingham,15%,0.429,22
+Waukesha,3%,0.5735,271
+Kenosha,5%,0.3928,184
+Appleton,1%,0.6904,241
+Milwaukee,4%,0.43840000000000007,188
+La Crosse,20%,0.47225,204
+Eau Claire,13%,0.4461,240
+Green Bay,6%,0.3776,177
+Oshkosh,12%,0.2711,241
+West Lafayette,156%,0.4345,187
+Fort Myers,17%,0.42865,3
+Bothell,11%,0.4571,23
+Hialeah,1%,0.4766,2
+Stamford,1%,0.3646,7
+Bend,1%,0.5,3623
+Redmond,1%,0.4404,13
+Chandler,4%,0.0801,370
+Draper,3%,1.0,1373
+Sandy Springs,1%,0.4,1093
+Scottsdale,17%,0.1307,380
+North Brunswick,2%,1.0,28
