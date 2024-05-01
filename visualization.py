@@ -46,7 +46,9 @@ def line_graph(df):
     )
     
     fig.update_layout(
-        bargap=0.03
+        bargap=0.03,
+        xaxis_title="Elevation of City (m)",
+        yaxis_title="Average Graduation Rate of Students in City"
     )
 
     # fig = px.line(
