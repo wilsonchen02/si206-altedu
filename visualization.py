@@ -28,7 +28,7 @@ def bar_graph(df):
 
     fig.show()
 
-def line_graph(df):
+def histogram(df):
     bins = range(
         0, 2400, 200
     )  
@@ -72,7 +72,7 @@ def line_graph(df):
 
 def main():
     df = pd.read_csv("calculations.csv")
-    line_graph(df)
+    histogram(df)
     bar_graph(df)
 
 
