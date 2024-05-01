@@ -79,7 +79,7 @@ def connect_to_db():
 # TODO: first req should not have the "after" parameter for populatedPlaces
 # Use GraphQL pagination to get the next 10 cities
 # Running this function will place 20 entries at a time into the db
-def geodb_get_states():
+def geodb_get_regions():
     data = {}
     # Check db to see if there's anything to start with
     # Otherwise, start at the beginning
@@ -205,7 +205,7 @@ def update_db(data):
 
 # TODO: use this to test funcs
 def main():
-    geodb_get_states()
+    geodb_get_regions()
 
 if __name__ == "__main__":
     main()
